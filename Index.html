@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday ❤️</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #000;
+      color: #fff;
+    }
+    #cake {
+      font-size: 80px;
+      margin-top: 50px;
+    }
+    #message {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎉 Countdown 🎉</h1>
+<h2 id="countdown"></h2>
+
+<div id="cake" style="display:none;">🎂🕯️</div>
+<button onclick="blowCandle()" id="btn" style="display:none;">Blow Candle 💨</button>
+
+<div id="message">
+  <h2>Happy Birthday Ayesha ❤️</h2>
+  <p>
+    Tum meri life ki sabse special person ho... 💖<br><br>
+    Chahe hum kitni bhi door ho,  
+    tum hamesha mere dil ke sabse kareeb ho ❤️<br><br>
+    Stay happy, stay smiling 😊  
+  </p>
+</div>
+
+<script>
+var countDownDate = new Date("April 20, 2026 00:00:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "It's her Birthday 🎉";
+    document.getElementById("cake").style.display = "block";
+    document.getElementById("btn").style.display = "block";
+  }
+}, 1000);
+
+function blowCandle() {
+  document.getElementById("cake").innerHTML = "🎂 (Candle Blown 🕯️)";
+  document.getElementById("message").style.display = "block";
+}
+</script>
+
+</body>
+</html>
